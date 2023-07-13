@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: MediaQuery.sizeOf(context).height * (2 / 3),
+            height: MediaQuery.sizeOf(context).height * (3.5 / 4),
             child: const Column(
               children: [
                 TopBar(),
@@ -102,25 +102,24 @@ class WalletInfo extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(
               text: "${balanceBs.toStringAsFixed(2)} Bs",
-              
               style: const TextStyle(
-                fontSize: 25,
+                fontSize: 45,
                 fontWeight: FontWeight.w500,
-                color: Colors.black,
+                color: Color.fromARGB(255, 66, 165, 245),
               ),
               children: [
                 TextSpan(
                   text: "\n\n\$$usdtBalance USD",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 25,
                     fontWeight: FontWeight.normal,
-                    color: Colors.grey.shade800,
+                    color: Colors.greenAccent.shade700,
                   ),
                 ),
                 TextSpan(
                   text: "\n$balance $symbol",
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 25,
                     fontWeight: FontWeight.normal,
                     color: Colors.grey.shade800,
                   ),
@@ -128,18 +127,22 @@ class WalletInfo extends StatelessWidget {
               ],
             ),
           ),
-          IconLabelBtn(
-            text: Text(
-              "Enviar",
-              style: TextStyle(color: Colors.blue.shade800, fontSize: 16),
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, TransactionPage.route);
-            },
-            color: Colors.blue.shade200,
-            icon: Icon(
-              Icons.send_rounded,
-              color: Colors.blue.shade800,
+          SizedBox( // Ajuste de tamaño del botón
+            height: 68,
+            width: 350,
+            child: IconLabelBtn(
+              text: Text(
+                "Transferir",
+                style: TextStyle(color: Colors.blue.shade800, fontSize: 20),
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, TransactionPage.route);
+              },
+              color: Colors.blue.shade200,
+              icon: Icon(
+                Icons.send_rounded,
+                color: Colors.blue.shade800,
+              ),
             ),
           ),
         ],
@@ -147,6 +150,7 @@ class WalletInfo extends StatelessWidget {
     );
   }
 }
+
 
 
 class TopBar extends StatelessWidget {
