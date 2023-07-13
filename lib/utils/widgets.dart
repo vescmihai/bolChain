@@ -32,12 +32,12 @@ class TransactionNotificationSnackbarContent extends StatelessWidget {
         color: Colors.green,
       ),
       title: Text(
-        from == address ? "Sent" : "Recieved",
+        from == address ? "Envio exitoso" : "Transferencia recibida",
         style: TextStyle(
             fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green),
       ),
       subtitle: Text.rich(TextSpan(children: [
-        TextSpan(text: from == address ? "To:$to" : "From:$from"),
+        TextSpan(text: from == address ? "Destino:$to" : "Origen:$from"),
       ])),
       trailing: Text(value.toStringAsFixed(8)),
     );
